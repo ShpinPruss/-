@@ -1,0 +1,30 @@
+.mainTitle {
+    color: indianred;/*Цвет шрифта*/
+    font-size: 124px;
+    text-align: center;
+
+}
+
+.link {
+    color: #06a565;
+}
+
+.body {
+    background-color: black;
+}
+
+.sqr {
+    width: 250px;
+    height: 250px;
+    background-color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 2s;
+}
+
+.sqr:hover {
+    cursor: pointer;
+    background-color: cadetblue;
+    border-radius: 50%;
+    transform: rotate(360deg);
+}
