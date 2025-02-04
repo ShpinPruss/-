@@ -11,7 +11,8 @@
 
 .body {
     background-color: black;
-    background-image: url("./pubg-pgc-12k-ms.jpg")
+    background-image: url("./pubg-pgc-12k-ms.jpg");
+    background-position: contain;
 }
 
 .sqr {
