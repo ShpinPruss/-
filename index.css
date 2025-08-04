@@ -30,3 +30,13 @@
     border-radius: 100%;
     transform: rotate(720deg);
 }
+
+.body {
+  background-image: url('photo.jpg'); 
+  background-size: cover;         
+  background-repeat: no-repeat;  
+  background-position: center;    
+  min-height: 100vh;              
+  margin: 0;
+  padding: 0;
+}
