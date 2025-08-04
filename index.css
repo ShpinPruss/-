@@ -11,7 +11,7 @@
 
 .body {
     background-color: rgb(255, 255, 255);
-    background-image: url("");
+    background-image: url("./photo.jpg");
     background-size: contain;
 }
 
@@ -31,12 +31,4 @@
     transform: rotate(720deg);
 }
 
-.body {
-  background-image: url('photo.jpg'); 
-  background-size: cover;         
-  background-repeat: no-repeat;  
-  background-position: center;    
-  min-height: 100vh;              
-  margin: 0;
-  padding: 0;
-}
+
