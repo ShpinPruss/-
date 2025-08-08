@@ -1,8 +1,7 @@
 .mainTitle {
-    color: rgb(0, 255, 76);/*Цвет шрифта*/
-    font-size: 124px;
+    color: rgba(147, 236, 111, 1); /* Цвет шрифта */
+    font-size: 81px;
     text-align: center;
-
 }
 
 .link {
@@ -30,16 +29,101 @@
 }
 
 .sqr:hover {
-    cursor: pointer;
-    background-color: aqua;
-    border-radius: 100%;
-    transform: rotate(720deg);
+    cursor: auto;
+    background-color: rgb(0, 255, 13);
+    border-radius: 10%;
+    transform: rotate(360deg);
 }
 
+.T.link { /* Примечание: селектор '.T.link' означает элемент с классами и 'T' и 'link' одновременно, например, <p class="T link">...</p> */
+    color: rgb(255, 0, 179); /* Цвет шрифта */
+    font-size: 12px;
+    text-align: left;
+}
 
+.image-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    /* --- Добавьте сюда правила позиционирования, если нужно --- */
+    /* Примеры (раскомментируйте нужное): */
+    /* margin-top: 20px; */
+    /* position: relative; top: 10px; left: 20px; */
+    position: absolute; top: 30px; right: 700px;
+    /* position: fixed; bottom: 20px; right: 20px; */
+    /* ---------------------------------------------------------- */
+}
 
+.image-link:hover {
+    transform: scale(1.2);
+}
 
+.image-link img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
+.image-link2 {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    /* --- Добавьте сюда правила позиционирования, если нужно --- */
+    /* Примеры (раскомментируйте нужное): */
+    /* margin-top: 20px; */
+    /* position: relative; top: 10px; left: 20px; */
+    position: absolute; top: 30px; right: 650px;
+    /* position: fixed; bottom: 20px; right: 20px; */
+    /* ---------------------------------------------------------- */
+}
 
+.image-link2:hover {
+    transform: scale(1.2);
+}
 
+.image-link2 img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
+.image-link3 {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    /* --- Добавьте сюда правила позиционирования, если нужно --- */
+    /* Примеры (раскомментируйте нужное): */
+    /* margin-top: 20px; */
+    /* position: relative; top: 10px; left: 20px; */
+    position: absolute; top: 30px; right: 750px;
+    /* position: fixed; bottom: 20px; right: 20px; */
+    /* ---------------------------------------------------------- */
+}
+
+.image-link3:hover {
+    transform: scale(1.2);
+}
+
+.image-link3 img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.parent-container {
+    position: relative; /* Создает контекст позиционирования для absolute */
+    /* Другие стили контейнера */
+}
+
+.absolute-window {
+    position: absolute;     /* Абсолютное позиционирование */
+    top: -1200px;              /* Расстояние от верха .parent-container */
+    left: 700px;             /* Расстояние от левого края .parent-container */
+    width: 270px;
+    height: 170px;
+    border: 1px solid #ccc;
+    z-index: 100;
+}
+
+.absolute-window iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
