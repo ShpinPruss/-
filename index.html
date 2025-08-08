@@ -1,28 +1,52 @@
-<!DOCTYPE html><!--Версия html-->
-<html lang="ru"><!--Открывющий тег всей страницы-->
-<head><!--Начало блоков с настройками страницы-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css"><!--Подключение стилей(CSS)-->
-    <title>вэлкоме</title><!--Тег отвечающий за текст во вкладке браузера-->
+    <link rel="stylesheet" href="./index.css">
+    <title>welcome</title>
 </head>
 <body class="body">
-    <h1 class="mainTitle"> Хело май диар френд
-	велкоме ту зе май страница</h1>
+    <h1 class="mainTitle"> welcome,это мой первый собственный сайт, работающий больше 3 месяцев</h1>
     <p>здеся и тута ничаво интереснава нет</p>
-    <a class="link" href="http://old-dos.ru/">старый софт</a>
-    <a href="https://ya.ru/">
-        <div class="sqr"></div>
-    </a>
     <video width="640" height="480" controls="controls" autoplay>
         <source class="video" src="./123.mp4">
 	</video>
-<script src="https://cdn.logwork.com/widget/digital.js"></script>
-<a href="https://logwork.com/current-time-in-dmitrov-russia-moskovskaya-oblast" class="digital-clock" data-style="round" data-size="463" data-timezone="Europe/Moscow" data-language="ru">Dmitrov,  Russia</a>
-   <a href="https://2ip.ru/" target="_blank" title="Узнай свой IP адрес"><img src="https://2ip.ru/sbar/2ip1.gif" alt="Узнай свой IP адрес"/></a>
+    <!-- Исправлены пробелы в src -->
+    <script src="https://cdn.logwork.com/widget/digital.js"></script>
+    <!-- Исправлены пробелы в href -->
+    <a href="https://logwork.com/current-time-in-dmitrov-russia-moskovskaya-oblast" class="digital-clock" data-style="round" data-size="463" data-timezone="Europe/Moscow" data-language="ru">Dmitrov, Russia</a>
+    <!-- Исправлены пробелы в href и src -->
+    <a href="https://2ip.ru/" target="_blank" title="Узнай свой IP адрес"><img src="https://2ip.ru/sbar/2ip1.gif" alt="Узнай свой IP адрес"/></a>
 	<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNVbYWqNuTOXFBOczLXBxzlkUwOBq2DGnHmYmOThXOGX5oqw/viewform?embedded=true" width="640" height="799" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+    <!-- Исправлены пробелы в href, закрыты теги img и a -->
+    <a href="https://ya.ru/" class="image-link">
+        <img src="jpg/yandex.png" alt="yandex" /> <!-- Закрыт тег img -->
+    </a> <!-- Закрыт тег a -->
+     <a href="https://old-dos.ru/" class="image-link2">
+        <img src="jpg/olddos.png" alt="olddosru" />
+    </a>
+    <a href="https://t.me/spfonkar" class="image-link3">
+        <img src="jpg/tele.png" alt="telegram" />
+    </a>
+
+    <!-- Поместите это внутрь нужного контейнера -->
+<div class="parent-container" style="position: relative; /* Или в CSS */">
+    <!-- Ваш основной контент -->
+    <p>Основной контент страницы...</p>
+    
+    <!-- Окошко -->
+    <div class="absolute-window">
+        <iframe
+            src="https://files.sberdisk.ru/s/9hvvyKjPGF2sG97"
+            width="250"
+            height="150"
+            frameborder="0"
+            scrolling="auto"
+            title="">
+            Ваш браузер не поддерживает фреймы.
+        </iframe>
+    </div>
+</div>
 </body>
 </html>
-
-
-
