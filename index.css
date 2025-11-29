@@ -127,3 +127,50 @@
     height: 100%;
     border: none;
 }
+
+/* === 1. Позиционирование и стилизация === */
+#corner-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    
+    padding: 15px 25px;
+    background-color: #ff5722;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000; 
+
+    /* Включаем анимацию: имя | длительность | повторение | тип */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* === 2. Анимация пульсации === */
+@keyframes pulse {
+    0% {
+        transform: scale(1); 
+        box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.7);
+    }
+    50% {
+        transform: scale(1.05); 
+        box-shadow: 0 0 0 10px rgba(255, 87, 34, 0); 
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 87, 34, 0);
+    }
+}
+
+/* === 3. Эффект при наведении === */
+#corner-button:hover {
+    background-color: #e64a19;
+    transform: scale(1.08);
+    transition: background-color 0.3s, transform 0.3s;
+    /* Останавливаем пульсацию при наведении, чтобы не мешала */
+    animation: none; 
+}
