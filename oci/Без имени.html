@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Доска Оцифровщиков</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Доска Оцифровщиков (НЕ ДОДЕЛАНА UPD: 29/11/25)</h1>
+  <a href="https://shpinpruss.github.io/-/" class="smooth-button-link">На Главную</a>
+
+  <div id="gallery-container"></div>
+
+  <script>
+   
+    
+    
+    const galleryData = [
+      { image: "logos/shpintv.jpg",      url: "https://t.me/dmitrovvhs" },     // 1
+      { image: "logos/ekbtvrec.jpg",       url: "https://t.me/ekbtvrec" },        // 2
+      { image: "logos/yar_zam.jpg",          url: "https://t.me/rutubeyaroslavzamatinvtg" },         // 3
+      { image: "logos/spl.jpg",          url: "https://t.me/spl_vhs" },                 // 4
+      { image: "logos/west.jpg",   url: "https://t.me/jops2286_vhs" },             // 5
+      
+     
+      
+      { image: "logos/tvold.jpg", url: "https://t.me/tvoldchanneltg#" },
+      { image: "logos/tvglor.jpg", url: "https://t.me/tvgloris" },
+      { image: "logos/shib.jpg", url: "https://t.me/buttercupsVHS" },
+      { image: "logos/kosta.jpg", url: "https://t.me/gffrdt_archive" },
+      { image: "logos/retrik.jpg", url: "https://t.me/simon_vhs" },
+      { image: "logos/timvhs.jpg", url: "https://t.me/timvhs74chanal" },
+      { image: "logos/maxim.jpg", url: "https://vk.com/vhsmchk11" },
+      { image: "logos/anton.gif", url: "https://t.me/noiceplumz" },
+      { image: "logos/igor.jpg", url: "https://t.me/cheriksofttv" },
+      { image: "logos/kuzn.jpg", url: "#" },
+      { image: "logos/swlove.jpg", url: "#" },
+      { image: "logos/rashn.jpg", url: "#" },
+      { image: "logos/kirll a.k.jpg", url: "https://t.me/mrcatmann_vhs" },
+      { image: "logos/mark.jpg", url: "#" },
+      { image: "logos/ip.png", url: "#" }
+    ];
+
+    
+
+
+    const container = document.getElementById('gallery-container');
+
+    // Скрипт перебирает ваш список и создает карточки
+    galleryData.forEach((item, index) => {
+      // Создаем ссылку
+      const link = document.createElement('a');
+      link.href = item.url;
+      link.className = 'sway-image-link';
+      
+      // Если ссылка внешняя (на другой сайт), открываем в новой вкладке (опционально)
+      if(item.url.startsWith('http')) {
+        link.target = "_blank"; 
+      }
+
+      // Создаем картинку
+      const img = document.createElement('img');
+      img.src = item.image; 
+      img.alt = `Картинка ${index + 1}`; // Подпись, если картинка не загрузится
+
+      // Собираем всё вместе
+      link.appendChild(img);
+      container.appendChild(link);
+    });
+  </script>
+
+</body>
+</html>

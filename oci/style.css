@@ -1,0 +1,74 @@
+body {
+  background-image: url('фон.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif; /* Добавил шрифт для аккуратности */
+}
+
+/* --- СТИЛИ ДЛЯ КНОПКИ --- */
+.smooth-button-link {
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4a4a4a; /* Объединил цвета из вашего кода */
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px; /* Отступ снизу от кнопки до картинок */
+}
+
+.smooth-button-link:hover {
+  background-color: #368a26;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* --- КОНТЕЙНЕР ГАЛЕРЕИ (ЧТОБЫ КАРТИНКИ СТОЯЛИ РЯДАМИ) --- */
+#gallery-container {
+  display: flex;
+  flex-wrap: wrap;       /* Перенос на новую строку */
+  justify-content: center; /* Выравнивание по центру */
+  gap: 30px;             /* Расстояние между картинками */
+  max-width: 1200px;
+  margin: 0 auto;        /* Центрирование самого контейнера */
+}
+
+/* --- СТИЛЬ ССЫЛКИ-КАРТИНКИ --- */
+.sway-image-link {
+  display: block;
+  transform-origin: top center; /* Качаемся от "гвоздя" сверху */
+  text-decoration: none;
+  width: 150px; /* Фиксированная ширина для аккуратности */
+  transition: transform 0.3s; /* Плавность для начального наведения */
+}
+
+/* Картинка внутри */
+.sway-image-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px; /* Немного скруглим углы */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Тень для объема */
+}
+
+/* --- АНИМАЦИЯ КАЧАНИЯ --- */
+@keyframes swing {
+  0%   { transform: rotate(0deg); }
+  20%  { transform: rotate(10deg); }
+  40%  { transform: rotate(-8deg); }
+  60%  { transform: rotate(5deg); }
+  80%  { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Запуск при наведении */
+.sway-image-link:hover {
+  animation: swing 1s ease-in-out;
+  /* Можно добавить увеличение, если хочется */
+  /* transform: scale(1.05); */
+}
