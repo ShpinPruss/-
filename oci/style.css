@@ -71,4 +71,63 @@ body {
   animation: swing 1s ease-in-out;
   /* Можно добавить увеличение, если хочется */
   /* transform: scale(1.05); */
+
+}
+
+/* Контейнер ссылки (позиция должна быть относительной) */
+.link-with-preview {
+  position: relative; /* Обязательно для позиционирования подсказки внутри */
+}
+
+/* Скрываем всплывающее окно (псевдоэлемент ::after) */
+.link-with-preview::after {
+  content: attr(data-preview); /* Берем текст из атрибута data-preview */
+  
+  /* Позиционирование */
+  position: absolute;
+  left: 50%; /* По центру ссылки */
+  bottom: 150%; /* Выше ссылки */
+  transform: translateX(-50%); /* Центрирование */
+
+  /* Внешний вид окна предпросмотра */
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  min-width: 200px;
+  text-align: center;
+  white-space: nowrap; /* Не переносить текст */
+  
+  /* Эффекты */
+  visibility: hidden; /* Скрыто по умолчанию */
+  opacity: 0;       /* Скрыто по умолчанию */
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 100;
+}
+
+/* Показываем всплывающее окно при наведении */
+.link-with-preview:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Добавляем маленький "хвостик" (опционально) */
+.link-with-preview::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 145%; /* Чуть выше ссылки */
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent; /* Создаем треугольник */
+  
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 100;
+}
+.link-with-preview:hover::before {
+  visibility: visible;
+  opacity: 1;
 }
