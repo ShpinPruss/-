@@ -174,3 +174,19 @@
     /* Останавливаем пульсацию при наведении, чтобы не мешала */
     animation: none; 
 }
+/* 1. Задаем обои для СВЕТЛОЙ темы по умолчанию */
+body {
+  background-image: url('jpg/svet.jpg');
+  background-size: cover;       /* Растягиваем картинку на весь экран */
+  background-position: center;  /* Центрируем изображение */
+  background-attachment: fixed; /* Фиксируем обои при прокрутке (опционально) */
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* 2. Переопределяем обои, если у пользователя включена ТЕМНАЯ тема */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: url('jpg/temnota.png');
+  }
+}
