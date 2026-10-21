@@ -1,1 +1,134 @@
+body {
+  background-image: url('oci/фон.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif; /* Добавил шрифт для аккуратности */
+}
+
+/* --- СТИЛИ ДЛЯ КНОПКИ --- */
+.smooth-button-link {
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4a4a4a; /* Объединил цвета из вашего кода */
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px; /* Отступ снизу от кнопки до картинок */
+}
+
+.smooth-button-link:hover {
+  background-color: #368a26;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* --- КОНТЕЙНЕР ГАЛЕРЕИ (ЧТОБЫ КАРТИНКИ СТОЯЛИ РЯДАМИ) --- */
+#gallery-container {
+  display: flex;
+  flex-wrap: wrap;       /* Перенос на новую строку */
+  justify-content: center; /* Выравнивание по центру */
+  gap: 30px;             /* Расстояние между картинками */
+  max-width: 1200px;
+  margin: 0 auto;        /* Центрирование самого контейнера */
+}
+
+/* --- СТИЛЬ ССЫЛКИ-КАРТИНКИ --- */
+.sway-image-link {
+  display: block;
+  transform-origin: top center; /* Качаемся от "гвоздя" сверху */
+  text-decoration: none;
+  width: 150px; /* Фиксированная ширина для аккуратности */
+  transition: transform 0.3s; /* Плавность для начального наведения */
+}
+
+/* Картинка внутри */
+.sway-image-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px; /* Немного скруглим углы */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Тень для объема */
+}
+
+/* --- АНИМАЦИЯ КАЧАНИЯ --- */
+@keyframes swing {
+  0%   { transform: rotate(0deg); }
+  20%  { transform: rotate(10deg); }
+  40%  { transform: rotate(-8deg); }
+  60%  { transform: rotate(5deg); }
+  80%  { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Запуск при наведении */
+.sway-image-link:hover {
+  animation: swing 1s ease-in-out;
+  /* Можно добавить увеличение, если хочется */
+  /* transform: scale(1.05); */
+
+}
+
+/* Контейнер ссылки (позиция должна быть относительной) */
+.link-with-preview {
+  position: relative; /* Обязательно для позиционирования подсказки внутри */
+}
+
+/* Скрываем всплывающее окно (псевдоэлемент ::after) */
+.link-with-preview::after {
+  content: attr(data-preview); /* Берем текст из атрибута data-preview */
+  
+  /* Позиционирование */
+  position: absolute;
+  left: 50%; /* По центру ссылки */
+  bottom: 150%; /* Выше ссылки */
+  transform: translateX(-50%); /* Центрирование */
+
+  /* Внешний вид окна предпросмотра */
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  min-width: 200px;
+  text-align: center;
+  white-space: nowrap; /* Не переносить текст */
+  
+  /* Эффекты */
+  visibility: hidden; /* Скрыто по умолчанию */
+  opacity: 0;       /* Скрыто по умолчанию */
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 100;
+}
+
+/* Показываем всплывающее окно при наведении */
+.link-with-preview:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Добавляем маленький "хвостик" (опционально) */
+.link-with-preview::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 145%; /* Чуть выше ссылки */
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent; /* Создаем треугольник */
+  
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 100;
+}
+.link-with-preview:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
 
