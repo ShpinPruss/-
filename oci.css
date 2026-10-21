@@ -1,5 +1,5 @@
 body {
-  background-image: url('oci/фон.jpg');
+  background-image: url('/oci/фон.jpg');
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
