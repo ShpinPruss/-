@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>TTX — выбор файла</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .wrap {
+    max-width: 600px;
+    width: 100%;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+  .back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .back:hover { color: #fff; }
+  #status {
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  #status.load { background: #1a1a2e; color: #aaa; }
+  #status.err  { background: #2e1a1a; color: #f88; }
+  #status.ok   { background: #1a2e1a; color: #8f8; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .card {
+    display: block;
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff;
+    transition: all .2s;
+    text-align: center;
+  }
+  .card:hover {
+    background: #2a2a4e;
+    border-color: #667eea;
+    transform: translateY(-3px);
+  }
+  .card .icon { font-size: 36px; margin-bottom: 8px; }
+  .card .name { font-weight: 600; font-size: 15px; word-break: break-word; }
+</style>
+</head>
+<body>
 
+<div class="wrap">
+  <a href="/" class="back">← На главную</a>
+  <h1>📁 TTX файлы</h1>
+  <div id="status" class="load">Загрузка...</div>
+  <div id="grid" class="grid"></div>
+</div>
+
+<script>
+// ===== НАСТРОЙКИ =====
+const REPO = 'ShpinPruss/ShpinPruss'; // поменяй если имя репо другое
+const FOLDER = 'ttx';
+// =====================
+
+const status = document.getElementById('status');
+const grid = document.getElementById('grid');
+
+async function load() {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FOLDER}`);
+    
+    if (!res.ok) {
+      if (res.status === 404) {
+        status.className = 'err';
+        status.textContent = `❌ Папка /${FOLDER}/ не найдена. Создай её в репозитории.`;
+      } else if (res.status === 403) {
+        status.className = 'err';
+        status.textContent = '⚠️ Лимит GitHub API. Подожди час.';
+      } else {
+        status.className = 'err';
+        status.textContent = `Ошибка ${res.status}`;
+      }
+      return;
+    }
+
+    const files = await res.json();
+    const htmlFiles = files
+      .filter(f => f.type === 'file' && f.name.toLowerCase().endsWith('.html'))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    if (htmlFiles.length === 0) {
+      status.className = 'err';
+      status.textContent = `📁 Папка найдена, но HTML-файлов нет`;
+      return;
+    }
+
+    status.className = 'ok';
+    status.textContent = `✅ Найдено файлов: ${htmlFiles.length}`;
+
+    htmlFiles.forEach(file => {
+      const a = document.createElement('a');
+      a.href = `/${FOLDER}/${file.name}`;
+      a.className = 'card';
+      a.innerHTML = `
+        <div class="icon">📄</div>
+        <div class="name">${file.name.replace('.html','')}</div>
+      `;
+      grid.appendChild(a);
+    });
+
+  } catch (e) {
+    status.className = 'err';
+    status.textContent = 'Ошибка: ' + e.message;
+  }
+}
+
+load();
+</script>
+
+</body>
+</html>
